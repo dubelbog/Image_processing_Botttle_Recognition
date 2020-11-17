@@ -27,7 +27,6 @@ def calculate_match(template, original, file_name):
 
 def get_bottle(screenshot):
     path = 'templates'
-    files = []
     # r=root, d=directories, f = files
     for r, d, f in os.walk(path):
         for file in f:
@@ -39,7 +38,6 @@ def get_bottle(screenshot):
                 plt.show()
                 plt.figure()
                 calculate_match(template_, screenshot, file)
-                files.append(os.path.join(r, file))
     sorted_list = sorted(scoring.values(), reverse=True)
     if sorted_list[0] < 0.15 or sorted_list[0] - sorted_list[1] < 0.05:
         text = "It was not possible to calculate the shape recognition. Try one more time."
